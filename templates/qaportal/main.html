@@ -1,0 +1,79 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+      {% block title %}
+         WELCOME
+      {% endblock title %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'qaportal/main.css' %}">
+    <script src="{% static 'qaportal/main.js' %}"></script>
+   </head>
+   <body>
+      <div class="wrapper">
+         <header>
+            <nav>
+               <div class="menu-icon">
+                  <i class="fa fa-bars fa-2x"></i>
+               </div>
+               <div class="logo">
+                  {% block heading %}
+                     WELCOME TO MY DISCUSSION SITE
+                  {% endblock heading %}
+                     
+               </div>
+               <div class="menu">
+                  <ul>
+                     {% block  home %}
+                       <li><a href="{% url 'qaportal:index' %}">HOME</a></li>
+                     {% endblock home %}
+                    
+                     {% block  signin %}
+                           <li><a href="{% url 'qaportal:login' %}">SIGN IN</a></li>
+                     {% endblock signin %}
+
+                     {% block signuptag %}
+                        <li><a href="{% url 'qaportal:newaccount' %}">SIGN UP</a></li>
+                     {% endblock signuptag %}
+
+                     {% if user.is_authenticated %}
+                        {% block logout %}
+                           <li><a href="{% url 'qaportal:logout' %}">LOGOUT</a></li>
+                        {% endblock logout %}
+                        {% block topics %}
+                           <li><a href="#">YOUR TOPICS</a></li>
+                        {% endblock topics %}
+                        {% block profile %}
+                           <li><a href="#">PROFILE</a></li>
+                        {% endblock profile %}
+                        {% block leader %}
+                           <li><a href="#">LEADERBAORD</a></li>
+                        {% endblock leader %}
+                     {% endif %}
+                     
+                     <li><a href="#">ISSUES</a></li>
+                  </ul>
+               </div>
+            </nav>
+         </header>
+         {% if message %}
+            <div class="message">
+               {{message}}
+            </div>
+         {% endif %}
+       
+        <div class="content">
+            {% block content %}
+            {% endblock content %}
+        </div>
+       
+   </body>
+</html>

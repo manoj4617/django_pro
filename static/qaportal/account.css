@@ -1,0 +1,138 @@
+body{
+  display: flex;
+  background-image: url('../images/volcano-1081840_1920.jpg');
+  background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+@media(min-width:768px){
+  .container{
+    display: flex;
+    align-items: stretch;
+    
+  }
+  .box-1 .box-2{
+    font-size: 20px;
+  }
+  .topic-frm{
+    display: flex;
+  }
+  .top > input[type=text]{
+    width:60%;
+    font-size: 14px;
+  }
+  .op > textarea{
+    width:72%;
+    font-size: 14px;
+  }
+  .sub > button{
+    width: 30px;
+    font-size: 14px;
+  }
+
+}
+
+.container div{
+  
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px ;
+  margin-top: 4%;
+  margin-bottom: 1% ;
+}
+
+.box-1  {
+  flex:2;
+  font-size: 34px;
+  color: aquamarine;
+  line-height: 1;
+}
+.box-2  {
+  border-left: 2px solid white;
+
+  flex:1;
+  color: white;
+  line-height: 1.5;
+  z-index: -1;
+}
+
+.box-1 p{
+  color:#F57D06 ;
+  font-size: 18px;
+  text-decoration: wavy;
+}
+
+.box-2 h3{
+  color:#2FFB09 ;
+  font-size: 20px;
+  text-decoration: wavy;
+}
+
+.box-1 #who-commented{
+  font-size:16px;
+  color:whitesmoke;
+}
+
+.box-1 #comment{
+  font-size: 22px;
+  width: 80%;
+  letter-spacing: 2;
+  height: max-content;
+  margin-left:15px;
+  border-left: 1px white solid;
+  padding: 10px;
+}
+
+
+
+.topic-frm{
+  margin: auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+  color: azure;
+}
+.topic-frm div{
+  padding: 10px;
+}
+.top > p{
+  font-size: 24px ;
+}
+.top > input[type=text]{
+  width:50%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  border: 2px solid white;
+  border-radius: 3px;
+  height: 40px;
+  transition: 0.2s ease;
+}
+.top > input[type=text]:focus{
+  border: 3px solid coral;
+}
+
+.op > textarea{
+  width: 65%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  border: 2px solid white;
+  border-radius: 3px;
+  transition: 0.3s ease;
+}
+.op > textarea:focus{
+  border: 3px solid coral;
+}
+.sub > button{
+  background-color: bisque;
+  width: 100px;
+  height: 5%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  border: 2px solid coral;
+  border-radius: 3px;
+  transition: 0.2s ease;
+  text-decoration-style: wavy;
+}
+.sub > button:hover{
+  background-color: #F57D06;
+  border: 2px solid white;
+  cursor: pointer;
+}

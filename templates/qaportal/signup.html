@@ -1,0 +1,42 @@
+{% extends './main.html' %}
+{% load static %}
+
+{% block title %}
+    SIGNUP
+{% endblock title %}
+
+{% block heading %}
+    SIGNUP
+{% endblock heading %}
+
+{% block signuptag %}
+{% endblock signuptag %}
+
+{% block content %}
+  
+<link rel="stylesheet" type="text/css" href="{% static 'qaportal/login.css' %}">
+
+
+    <div class="container">
+    
+        <div class="frm-grp">
+            <h2>SIGNUP</h2>
+            <form action="{% url 'qaportal:signup' %}" method="POST">
+                {% csrf_token %}
+
+                <p>Name</p>
+                <input type="text" name="name" id="name" placeholder="Your name">
+                <p>Username</p>
+                <input type="text" name="username" id="username" placeholder="Username">
+                <p>Email</p>
+                <input type="email" name="email" id="email" placeholder="Your Email">
+                <p>Password</p>
+                <input type="text" name="pass" id="pass" placeholder="Set a password">
+                <p>Confirm Password</p>
+                <input type="password" name="com_pass" id="com_pass" placeholder="Confirm password">
+                <input type="submit" name="" value="Login">
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}  

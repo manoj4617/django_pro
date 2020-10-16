@@ -1,0 +1,57 @@
+{% extends './main.html' %}
+{% load static %}
+
+{% block signin %}
+{% endblock signin %}
+
+{% block signuptag %}
+{% endblock signuptag %}
+
+{% block heading %}
+    WELCOME {{user.username}}
+{% endblock heading %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'qaportal/account.css' %}">
+<script src="{% static 'qaportal/account.js' %}"></script>
+    <div class="topic-frm">
+        <h2>Start a discussion</h2>
+        <div class="top">
+            <p>Topic</p>
+            <input type="text" name="topic" id="topic" placeholder="Topic of your choice....">
+        </div>
+        <div class="op">
+            <p>Your Opinion</p>
+            <textarea name="opnion" id="opinion" cols="100" rows="10">Give your opinion.....</textarea>
+        </div>
+        <div class="sub">
+            <button type="submit" onclick="newtopic({{user.id}})">ADD</button>
+        </div>
+    </div>
+
+
+{% if tops %}
+    {% for t in tops %}
+        <div class="container">
+            <div class="box-1">
+                <p>{{t.uid}}</p>
+                {{t.topic}}
+                <input type="hidden" name="tid" id="tid" value="{{t.id}}">
+                {% if coms %}
+                    {% for comments in coms %}
+                        {% if comments.topic_id.id == t.id %}
+                            <p id="who-commented">{{comments.user_commented}}</p>
+                            <p id="comment">{{comments.comment}}</p>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="box-2">
+                <h3>My Opinion</h3>
+                {{t.your_take}}
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+
+{% endblock content %}
